@@ -1,21 +1,31 @@
 import AppContext from "./AppContext";
-import { Cliente } from "./Interfaces/Interfaces";
+import { Agencia, Cliente, Conta } from "./Interfaces/Interfaces";
 import React, { useState } from "react";
 
 const AppProvider : React.FC<{children: React.ReactNode}> = ({ children }) => {
-    const [dados, fornecerDados] = useState<Cliente[]>([]);
-    const [idCliente, fornecerIdCliente] = useState<string>("");
+    const [dadosClientes, fornecerDadosClientes] = useState<Cliente[]>([]);
+    const [dadosContas, fornecerDadosContas] = useState<Conta[]>([]);
+    const [dadosAgencias, fornecerDadosAgencias] = useState<Agencia[]>([]);
+    const [ids, fornecerIds] = useState<{cliente: string, contas: Conta[], agencia: string}>({cliente: "", contas: [], agencia: ""});
 
-    const setDados = (novosDados : Cliente[]) => {
-        fornecerDados(novosDados)
+    const setDadosClientes = (novosDadosClientes : Cliente[]) => {
+        fornecerDadosClientes(novosDadosClientes)
     }
 
-    const setIdCliente = (novoIdCCliente : string) => {
-        fornecerIdCliente(novoIdCCliente)
+    const setDadosContas = (novosDadosContas : Conta[]) => {
+        fornecerDadosContas(novosDadosContas)
+    }
+
+    const setDadosAgencias = (novosDadosAgencias : Agencia[]) => {
+        fornecerDadosAgencias(novosDadosAgencias)
+    }
+
+    const setIds = (novoIds : {cliente: string, contas: Conta[], agencia: string}) => {
+        fornecerIds(novoIds)
     }
 
     return(
-        <AppContext.Provider value={[{dados, setDados}, {idCliente, setIdCliente}]}>
+        <AppContext.Provider value={[{dadosClientes, setDadosClientes}, {dadosContas, setDadosContas}, {dadosAgencias, setDadosAgencias}, {ids, setIds}]}>
             {children}
         </AppContext.Provider>
     )

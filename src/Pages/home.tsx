@@ -24,14 +24,17 @@ async function getData<T>(url : string) {
 export function Home(){
     const [listaAtual, setListaAtual] = useState<Cliente[]>([]);
     const [tamAtual, setTamAtual] = useState(0);
-    const [dadosContas, setDadosContas] = useState<Conta[]>([]);
-    const [dadosAgencias, setDadosAgencias] = useState<Agencia[]>([]);
-    const [ctxCliente, ctxId] = useContext(AppContext);
-    const {dados, setDados} = ctxCliente;
+    const [ctxCliente, ctxContas, ctxAgencias] = useContext(AppContext);
+    const {dadosClientes, setDadosClientes} = ctxCliente;
+    const [listaFiltrada, setListaFiltrada] = useState<Cliente[]>([]);
+    const {setDadosContas} = ctxContas;
+    const {dadosAgencias, setDadosAgencias} = ctxAgencias;
+
     
     useEffect(() => {
         getData<Cliente>("https://docs.google.com/spreadsheets/d/1PBN_HQOi5ZpKDd63mouxttFvvCwtmY97Tb5if5_cdBA/gviz/tq?tqx=out:csv&sheet=clientes").then((result) => {
-        setDados(result);
+        setDadosClientes(result);
+        setListaFiltrada(result);
         setListaAtual(result.slice(0, 10));
         })
         getData<Agencia>("https://docs.google.com/spreadsheets/d/1PBN_HQOi5ZpKDd63mouxttFvvCwtmY97Tb5if5_cdBA/gviz/tq?tqx=out:csv&sheet=agencias").then((result) => {
@@ -42,18 +45,49 @@ export function Home(){
         })
     }, [])
     function handleNext(){
-        setListaAtual(dados.slice(tamAtual + 10, tamAtual + 20));
+        setListaAtual(listaFiltrada.slice(tamAtual + 10, tamAtual + 20));
         setTamAtual(tamAtual + 10);
     }
     function handlePrev(){
-        setListaAtual(dados.slice(tamAtual - 10, tamAtual));
+        setListaAtual(listaFiltrada.slice(tamAtual - 10, tamAtual));
         setTamAtual(tamAtual - 10);
+    }
+    function handleFilterNome(searchStr: string){
+        const resultado = searchStr !== "" ?
+        dadosClientes.filter((x) => x.nome.toLowerCase().includes(searchStr.toLowerCase())) : dadosClientes;
+        setListaFiltrada(resultado);
+        setListaAtual(resultado.slice(0, 10 < resultado.length ? 10 : resultado.length));
+        setTamAtual(0);
+    }
+    function handleFilterCPF(searchStr: string){
+        const resultado = searchStr !== "" ?
+        dadosClientes.filter((x) => x.cpfCnpj.includes(searchStr)) : dadosClientes;
+        setListaFiltrada(resultado);
+        setListaAtual(resultado.slice(0, 10 < resultado.length ? 10 : resultado.length));
+        setTamAtual(0);
+    }
+    function handleFilterAgencia(codAgencia: string){
+        const resultado = codAgencia !== "" ?
+        dadosClientes.filter((x) => x.codigoAgencia.toString() == codAgencia) : dadosClientes;
+        setListaFiltrada(resultado);
+        setListaAtual(resultado.slice(0, 10 < resultado.length ? 10 : resultado.length));
+        setTamAtual(0);
     }
     return (
         <>
-        <ListClientes list={listaAtual}></ListClientes>
-        <button onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}>Prev.</button>
-        <button onClick={handleNext} disabled={tamAtual + 10 < dados.length - 1 ? false : true}>Next</button>
+            <div>
+                <input type="text" placeholder='Nome' onChange={(e) => {handleFilterNome(e.target.value)}} />
+                <input type="number" placeholder='CPF/CNPJ' onChange={(e) => {handleFilterCPF(e.target.value)}} />
+                <select name="agencia" id="agencia" onChange={(e) => {handleFilterAgencia(e.target.value)}}>
+                    <option value="" selected>Agência</option>
+                    {dadosAgencias.map((element) => (
+                        <option key={element.id} value={element.codigo}>{element.nome}</option>
+                    ))}
+                </select>
+            </div>
+            <ListClientes list={listaAtual}></ListClientes>
+            <button onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}>Prev.</button>
+            <button onClick={handleNext} disabled={tamAtual + 10 < listaFiltrada.length - 1 ? false : true}>Next</button>
         </>
     )
 }
