@@ -1,4 +1,5 @@
 import './App.css'
+import './colors.css'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { Home } from './Pages/home'
 import { Perfil } from './Pages/perfil'

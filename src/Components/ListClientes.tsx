@@ -15,9 +15,9 @@ export default function ListClientes({list} : {list: Cliente[]}){
     return(
       <div key={index} style={{backgroundColor: "#e3e3e3", borderRadius: "10px", border: "solid 2px black", padding: "10px", margin: "10px"}}>
         <div>
-          <p>Nome: {element.nomeSocial ? element.nomeSocial : element.nome}</p>
-          <p>CPF/CNPJ: {element.cpfCnpj}</p>
-          <p>Email: {element.email}</p>
+          <p><strong>Nome: </strong>{element.nomeSocial ? element.nomeSocial : element.nome}</p>
+          <p><strong>CPF/CNPJ: </strong>{element.cpfCnpj}</p>
+          <p><strong>Email: </strong>{element.email}</p>
         </div>
         <Link to={"/perfil"} onClick={() => handleProfile({cliente: element.id, contas: dadosContas.filter((x) => x.cpfCnpjCliente == element.cpfCnpj), agencia: element.codigoAgencia.toString()})}>Mostrar mais</Link>
       </div>

@@ -23,15 +23,15 @@ export function Perfil(){
         <>
             <Link to='/'>Voltar</Link>
             {client ? <>
-                <p>Nome: {client.nomeSocial ? client.nomeSocial : client.nome}</p>
-                <p>CPF: {client.cpfCnpj}</p>
-                <p>RG: {client.rg ? client.rg : "Não registrado"}</p>
-                <p>Data de Nascimento: {client.dataNascimento.toString()}</p>
-                <p>Email: {client.email}</p>
-                <p>Endereço: {client.endereco}</p>
-                <p>Renda: R${client.rendaAnual}/Ano</p>
-                <p>Patrimônio: R${client.patrimonio}</p>
-                <p>Estado Civil: {client.estadoCivil}</p>
+                <p><strong>Nome: </strong>{client.nomeSocial ? client.nomeSocial : client.nome}</p>
+                <p><strong>CPF: </strong>{client.cpfCnpj}</p>
+                <p><strong>RG: </strong>{client.rg ? client.rg : "Não registrado"}</p>
+                <p><strong>Data de Nascimento: </strong>{client.dataNascimento.toString()}</p>
+                <p><strong>Email: </strong>{client.email}</p>
+                <p><strong>Endereço: </strong>{client.endereco}</p>
+                <p><strong>Renda: </strong>R${client.rendaAnual}/Ano</p>
+                <p><strong>Patrimônio: </strong>R${client.patrimonio}</p>
+                <p><strong>Estado Civil: </strong>{client.estadoCivil}</p>
                     {
                         agency.length > 0 ? 
                         <Link to={"/agencia"}>
@@ -48,10 +48,10 @@ export function Perfil(){
                         contas.length > 0 ? 
                         contas.map((element) => (
                             <div style={{margin: "10px", backgroundColor: "lightgray", padding: "10px"}}>
-                                <p>Tipo de conta: {element.tipo}</p>
-                                <p>Saldo da conta: {element.saldo}</p>
-                                <p>Limite de crédito: {element.limiteCredito}</p>
-                                <p>Crédito disponível: {element.creditoDisponivel}</p>
+                                <p><strong>Tipo de conta: </strong>{element.tipo}</p>
+                                <p><strong>Saldo da conta: </strong>{element.saldo}</p>
+                                <p><strong>Limite de crédito: </strong>{element.limiteCredito}</p>
+                                <p><strong>Crédito disponível: </strong>{element.creditoDisponivel}</p>
                             </div>
                         ))
                         :

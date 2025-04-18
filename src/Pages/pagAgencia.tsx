@@ -22,12 +22,12 @@ export default function PagAgencia(){
             {agency ? 
             <div>
                 <div>
-                    <p>Nome: {agency.nome}</p>
-                    <p>Código da agência: {agency.codigo}</p>
-                    <p>Endereço: {agency.endereco}</p>
+                    <p><strong>Nome: </strong>{agency.nome}</p>
+                    <p><strong>Código da agência: </strong>{agency.codigo}</p>
+                    <p><strong>Endereço: </strong>{agency.endereco}</p>
                 </div>
                 <div>
-                    <p>Clientes:</p>
+                    <h3>Clientes:</h3>
                     <ListClientes list={dadosClientes.filter((element) => element.codigoAgencia == agency.codigo)}></ListClientes>
                 </div>
             </div>

@@ -1,0 +1,15 @@
+.logo{
+    width: 150px;
+}
+.bar{
+    border-bottom: 2px solid var(--Azul-Banestes);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    justify-content: center;
+}
