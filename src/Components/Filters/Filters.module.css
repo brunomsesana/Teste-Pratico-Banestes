@@ -1,0 +1,21 @@
+.filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.input{
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+}
+.selectinput{
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+    border: none !important;
+}

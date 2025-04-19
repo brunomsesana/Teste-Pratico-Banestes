@@ -4,4 +4,29 @@ body{
     width: 100%;
     margin: 0px;
     font-family: "Open Sans", sans-serif;
+    background-color: var(--Azul-Escuro);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerPrevNext{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.seta{
+    width: 50px;
+}
+.setaDireita{
+    transform: rotate(270deg);
+}
+.setaEsquerda{
+    transform: rotate(90deg);
+}
+.btn{
+    background-color: var(--Cinza-Claro);
+    border-radius: 10px;
+    height: 50px;
 }

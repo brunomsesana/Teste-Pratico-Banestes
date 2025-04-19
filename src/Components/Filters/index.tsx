@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
-import AppContext from "../AppContext";
-import { Cliente } from "../Interfaces/Interfaces";
+import AppContext from "../../AppContext";
+import { Cliente } from "../../Interfaces/Interfaces";
+import styles from "./Filters.module.css";
 export default function Filters({setListaFiltrada, setListaAtual, setTamAtual}: {setListaFiltrada: Function, setListaAtual: Function, setTamAtual: Function}){
     const [ctxCliente, ctxContas, ctxAgencias] = useContext(AppContext);
     const { dadosClientes } = ctxCliente;
@@ -27,11 +28,11 @@ export default function Filters({setListaFiltrada, setListaAtual, setTamAtual}: 
         setTamAtual(0);
     }
     return(
-        <div>
-            <input type="text" placeholder='Nome' onChange={(e) => {handleFilterNome(e.target.value)}} />
-            <input type="number" placeholder='CPF/CNPJ' onChange={(e) => {handleFilterCPF(e.target.value)}} />
-            <select name="agencia" id="agencia" onChange={(e) => {handleFilterAgencia(e.target.value)}}>
-                <option value="" selected>Agência</option>
+        <div className={styles.filter}>
+            <input className={styles.input} type="text" placeholder='Nome' onChange={(e) => {handleFilterNome(e.target.value)}} />
+            <input className={styles.input} type="number" placeholder='CPF/CNPJ' onChange={(e) => {handleFilterCPF(e.target.value)}} />
+            <select className={styles.selectinput} name="agencia" id="agencia" onChange={(e) => {handleFilterAgencia(e.target.value)}}>
+                <option value="" selected>Todas as agências</option>
                 {dadosAgencias.map((element) => (
                     <option key={element.id} value={element.codigo}>{element.nome}</option>
                 ))}

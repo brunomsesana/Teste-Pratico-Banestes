@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { Agencia, Cliente, Conta } from "../Interfaces/Interfaces";
+import { Agencia, Cliente } from "../Interfaces/Interfaces";
 import AppContext from "../AppContext";
 import { Link } from "react-router-dom";
 

@@ -3,6 +3,7 @@ import { Cliente, Conta, Agencia } from "../Interfaces/Interfaces"
 import { ListClientes, Filters, Header } from '../Components';
 import AppContext from '../AppContext';
 import getData from '../getData';
+import seta from "../Assets/Seta.svg"
 
 export function Home(){
     const [listaAtual, setListaAtual] = useState<Cliente[]>([]);
@@ -36,12 +37,18 @@ export function Home(){
         setTamAtual(tamAtual - 10);
     }
     return (
-        <>
-            <Header></Header>
-            <Filters setListaFiltrada={setListaFiltrada} setListaAtual={setListaAtual} setTamAtual={setTamAtual}></Filters>
+        <div className='container'>
+            <Header/>
+            <div className='containerPrevNext'>
+                <button className='btn' onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}><img src={seta} className='seta setaEsquerda'></img></button>
+                <Filters setListaFiltrada={setListaFiltrada} setListaAtual={setListaAtual} setTamAtual={setTamAtual}></Filters>
+                <button className='btn' onClick={handleNext} disabled={tamAtual + 10 < listaFiltrada.length - 1 ? false : true}><img src={seta} className='seta setaDireita'></img></button>
+            </div>
             <ListClientes list={listaAtual}></ListClientes>
-            <button onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}>Prev.</button>
-            <button onClick={handleNext} disabled={tamAtual + 10 < listaFiltrada.length - 1 ? false : true}>Next</button>
-        </>
+            <div className='containerPrevNext'>
+                <button className='btn' onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}><img src={seta} className='seta setaEsquerda'></img></button>
+                <button className='btn' onClick={handleNext} disabled={tamAtual + 10 < listaFiltrada.length - 1 ? false : true}><img src={seta} className='seta setaDireita'></img></button>
+            </div>
+        </div>
     )
 }
