@@ -1,0 +1,49 @@
+.perfil{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.infoCliente{
+    padding: 10px;
+    background-color: var(--Cinza-Claro);
+    border-top: 2px solid var(--Azul-Banestes);
+    border-bottom: 2px solid var(--Azul-Banestes);
+}
+.infoAgencia{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--Cinza-Claro);
+    border: 2px solid var(--Azul-Banestes);
+    text-decoration: none;
+    color: black;
+    transition: 0.1s;
+    text-decoration: underline;
+}
+.infoAgencia:hover{
+    transform: scale(1.025);
+    color: var(--Azul-Banestes);
+}
+.infoContas{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--Cinza-Claro);
+    border: 2px solid var(--Azul-Banestes);
+    width: 80%;
+}
+.containerContas{
+    display: flex;
+    justify-items: flex-start;
+}
+.itemConta{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--Cinza-Escuro);
+    border: 2px solid var(--Azul-Banestes);
+    color: var(--Branco)
+}

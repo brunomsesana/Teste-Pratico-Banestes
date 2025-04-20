@@ -47,6 +47,9 @@ export function Home(){
             <ListClientes list={listaAtual}></ListClientes>
             <div className='containerPrevNext'>
                 <button className='btn' onClick={handlePrev} disabled={tamAtual - 10 >= 0 ? false : true}><img src={seta} className='seta setaEsquerda'></img></button>
+                <div className='baloon'>
+                    <p>{Math.floor((tamAtual + 10) / 10)} / {Math.floor(listaFiltrada.length / 10)}</p>
+                </div>
                 <button className='btn' onClick={handleNext} disabled={tamAtual + 10 < listaFiltrada.length - 1 ? false : true}><img src={seta} className='seta setaDireita'></img></button>
             </div>
         </div>

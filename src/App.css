@@ -11,10 +11,19 @@ body{
     flex-direction: column;
     align-items: center;
 }
+.baloon{
+    background-color: var(--Cinza-Claro);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--Azul-Banestes);
+    margin: 10px;
+}
 .containerPrevNext{
     width: 80%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .seta{
     width: 50px;
@@ -27,6 +36,16 @@ body{
 }
 .btn{
     background-color: var(--Cinza-Claro);
+    border: 2px solid var(--Azul-Banestes);
     border-radius: 10px;
     height: 50px;
+}
+.btn:disabled{
+    background-color: #e6ebf07e !important;
+    border: none;
+    cursor: not-allowed !important;
+}
+.btn:hover{
+    background-color: var(--Azul-Claro);
+    cursor: pointer;
 }
