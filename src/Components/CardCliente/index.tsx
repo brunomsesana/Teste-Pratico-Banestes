@@ -13,7 +13,7 @@ import { useMediaQuery } from "react-responsive";
  */
 export default function CardCliente({element} : {element: Cliente}){
     // Obtém dados e funções do contexto
-    const [ctxCliente, ctxContas, ctxAgencias, ctxId] = useContext(AppContext);
+    const [, ctxContas, , ctxId] = useContext(AppContext);
     const { dadosContas } = ctxContas;
     const { setIds } = ctxId;
 

@@ -18,7 +18,7 @@ import { Header } from "../Components";
  */
 export function Perfil(){
     // Obtém dados de clientes, agências e IDs do contexto
-    const [ctxCliente, ctxContas, ctxAgencias, ctxId] = useContext(AppContext);
+    const [ctxCliente, , ctxAgencias, ctxId] = useContext(AppContext);
     const { dadosClientes } = ctxCliente;
     const { dadosAgencias } = ctxAgencias;
     const { ids } = ctxId;

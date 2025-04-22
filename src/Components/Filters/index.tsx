@@ -1,6 +1,5 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import AppContext from "../../AppContext"
-import { Cliente } from "../../Interfaces/Interfaces"
 import styles from "./Filters.module.css"
 
 /**
@@ -13,7 +12,7 @@ import styles from "./Filters.module.css"
 export default function Filters({setListaFiltrada, setListaAtual, setTamAtual}: {setListaFiltrada: Function, setListaAtual: Function, setTamAtual: Function}){
 
     // Acesso ao contexto global com dados de clientes e agências
-    const [ctxCliente, ctxContas, ctxAgencias] = useContext(AppContext);
+    const [ctxCliente, , ctxAgencias] = useContext(AppContext);
     const { dadosClientes } = ctxCliente;
     const { dadosAgencias } = ctxAgencias;
 
