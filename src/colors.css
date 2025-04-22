@@ -1,9 +1,8 @@
-:root{
-    --primaria: #004b8d;
-    --Azul-Banestes: #005BAC;
-    --Azul-Claro: #7DC1E3;
-    --Cinza-Claro: #E6EBF0;
-    --Cinza-Escuro: #5d5f62;
-    --Azul-Escuro: #002C50;
-    --Branco: #FFFFFF;
+:root {
+    --Azul-Banestes: #005BAC;  /* Cor específica para o Azul Banestes */
+    --Azul-Claro: #7DC1E3;     /* Cor azul clara */
+    --Azul-Escuro: #002C50;    /* Cor azul escuro (para contrastes ou destaques) */
+    --Cinza-Claro: #E6EBF0;    /* Cor cinza claro (para fundos) */
+    --Cinza-Escuro: #5d5f62;   /* Cor cinza escuro (para texto ou elementos escuros) */
+    --Branco: #FFFFFF;         /* Cor branca */
 }

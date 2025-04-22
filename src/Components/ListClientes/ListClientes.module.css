@@ -11,3 +11,13 @@
 .header{
     font-weight: bold;
 }
+
+@media screen and (max-width: 600px) {
+    .table td {
+        display: none;
+        margin: 20px;
+    }
+    .table{
+        border-collapse: separate;
+    }
+}

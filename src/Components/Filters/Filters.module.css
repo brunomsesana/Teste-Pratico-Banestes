@@ -19,3 +19,23 @@
     margin: 5px;
     border: none !important;
 }
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .input{
+        width: 30%;
+    }
+    .selectinput{
+        width: 30%;
+    }
+}
+@media screen and (max-width: 600px){
+    .filter{
+        flex-direction: column;
+    }
+    .input {
+        width: 80%;
+    }
+    .selectinput{
+        width: 85%;
+    }
+}

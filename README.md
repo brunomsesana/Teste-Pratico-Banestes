@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# Teste Prático - Estágio Banestes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém a implementação de um **teste prático** desenvolvido para o processo seletivo de **estágio** na empresa **Banestes**. A aplicação foi construída utilizando **React** e **TypeScript** para demonstrar habilidades em **desenvolvimento front-end** e **integração com APIs**.
 
-Currently, two official plugins are available:
+## Acesso
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Você pode acessar uma versão online desse projeto em https://brunomsesana.github.io/teste-pratico-banestes
 
-## Expanding the ESLint configuration
+## Descrição
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+A aplicação consiste em um sistema bancário simples que permite visualizar e gerenciar clientes, contas e agências. Ela consome dados provenientes de planilhas públicas (Google Sheets) para popular as informações de clientes, contas e agências, e permite a navegação entre as páginas de perfil, agências e clientes.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Funcionalidades:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Visualização de Clientes:** Exibe uma lista de clientes com detalhes como nome, CPF, endereço, renda, patrimônio, entre outros.
+- **Visualização de Agências:** Permite ver os detalhes das agências, como nome, código e endereço.
+- **Perfil do Cliente:** Exibe informações detalhadas sobre o cliente selecionado, incluindo suas contas bancárias associadas à agência.
+- **Navegação entre Páginas:** A navegação é feita através de links e componentes React Router, com paginação para exibir os dados de maneira organizada.
+- **Filtros e Pesquisa:** Funcionalidade para filtrar e pesquisar clientes.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Tecnologias Utilizadas
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **React**: Biblioteca para criação de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **React Router**: Biblioteca para navegação entre páginas.
+- **CSS Modules**: Abordagem para evitar conflitos de nome de classe no CSS.
+- **Context API**: Utilizada para gerenciar o estado global da aplicação.
+- **Google Sheets API**: Utilizada para consumir dados armazenados em planilhas do Google.
+
+## Estrutura do Projeto
+
+- **/src**: Contém os componentes principais da aplicação.
+  - **/Components**: Componentes reutilizáveis como cabeçalho, filtros e listas.
+  - **/Pages**: Páginas principais da aplicação como Home, Perfil e Agências.
+  - **/Interfaces**: Tipos e interfaces TypeScript para dados.
+  - **/AppContext**: Contexto global utilizado para gerenciar dados de clientes, contas e agências.
+
+## Instalação
+
+Para rodar o projeto localmente, siga os passos abaixo:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/brunomsesana/Teste-Pratico-Banestes.git
+
+2. **Navegue até o diretório do projeto:**
+
+    ```bash
+    cd teste-pratico-banestes
+
+3. **Instale as dependências:**
+
+    ```bash
+    npm install
+
+4. **Execute o projeto**
+
+    ```bash
+    npm run dev
+
+## Considerações Finais
+
+Este projeto foi desenvolvido como parte de um **teste prático** para o processo seletivo de estágio no **Banestes**. A ideia é demonstrar as habilidades em desenvolvimento front-end e integração com APIs externas. Algumas melhorias podem ser feitas para ampliar a funcionalidade e otimizar o desempenho.

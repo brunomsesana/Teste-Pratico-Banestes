@@ -47,3 +47,10 @@
     border: 2px solid var(--Azul-Banestes);
     color: var(--Branco)
 }
+
+@media screen and (max-width: 600px) {
+    .perfil{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
