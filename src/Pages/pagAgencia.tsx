@@ -17,7 +17,7 @@ import styles from "./pagAgencia.module.css"
  */
 export default function PagAgencia(){
     // Obtém dados de clientes, contas, agências e IDs do contexto
-    const [ctxCliente, ctxContas, ctxAgencias, ctxIds] = useContext(AppContext);
+    const [ctxCliente, , ctxAgencias, ctxIds] = useContext(AppContext);
     const {dadosAgencias} = ctxAgencias;
     const {dadosClientes} = ctxCliente;
     const {ids} = ctxIds;
